@@ -2,11 +2,8 @@
 
 from dataclasses import dataclass
 
-from mirutil.funcs import norm_fa_str as norm
 from mirutil.funcs import read_data_according_to_type as rdata
 from mirutil.funcs import save_df_as_a_nice_xl as sxl
-from mirutil.funcs import save_as_prq_wo_index as sprq
-
 
 
 btic = 'BaseTicker'
@@ -20,7 +17,6 @@ class Cols :
   title = 'title'
 
 cols = Cols()
-
 
 def main() :
 
@@ -78,7 +74,7 @@ def main() :
   ptr0_1 = r'ح' + r'\s.+'
   msk |= df[cols.title].str.fullmatch(ptr0_1)
 
-  df.loc[msk, isbtic] = False
+  df.loc[msk , isbtic] = False
 
   msk = df[isbtic].ne(False)
   df1 = df[msk]
